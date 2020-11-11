@@ -31,7 +31,7 @@ echo -e "➢ limit 2     : membatasi jumlah user MAX 2 login"
 echo -e "➢ limit stop  : menonaktifkan fitur userlimit"
 echo -e "➢ limit cek   : cek log user yang berhasil di kill"
 echo -e "➢ limit reset : reset log user yang berhasil di kill"
-"---------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------"
 
 echo -e "By AdminPandassh"
 echo -e ""
