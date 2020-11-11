@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Original script by fornesia, rzengineer and fawzya 
-# Mod by Kemadd
+# Mod by Bagus
 # 
 # ==================================================
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
@@ -15,13 +15,13 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 country=ID
 state=MALANG
 locality=JAWA TIMUR
-organization=www.sshtunneling.tk
-organizationalunit=www.sshtunneling.tk
-commonname=www.sshtunneling.tk
-email=andiihzarafi@domainm.my.id
+organization=www.pandassh.com
+organizationalunit=www.pandassh.com
+commonname=www.pandassh.com
+email=cspanda@ssh.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/benkemad/benninstall/master/common-password-deb9"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/benkemad/scriptbagus/master/common-password-deb9"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -112,20 +112,20 @@ apt-get -y update
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/benkemad/benninstall/master/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/benkemad/scriptbagus/master/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<pre>Setup by Kemaddd</pre>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/benkemad/benninstall/master/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/benkemad/scriptbagus/master/vps.conf"
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/benkemad/benninstall/master/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/benkemad/scriptbagus/master/badvpn-udpgw64"
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000 --max-connections-for-client 10' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
 screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000 --max-connections-for-client 10 
 
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/benkemad/benninstall/master/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/benkemad/scriptbagus/master/badvpn-udpgw64"
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
 screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10 
@@ -145,7 +145,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt-get -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/benkemad/benninstall/master/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/benkemad/scriptbagus/master/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 source /etc/os-release
@@ -278,7 +278,7 @@ cd /etc/openvpn
 # Buat config client TCP 1194
 cat > /etc/openvpn/client-tcp-1194.ovpn <<-END
 ##### WELCOME TO VPNSTORE #####
-##### www.sshtunneling.tk #####
+##### www.PANDASSH.COM #####
 ##### DONT FORGET TO SUPPORT US #####
 client
 dev tun
@@ -806,28 +806,28 @@ cd
 apt-get install -y libxml-parser-perl
 
 # banner /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/benkemad/benninstall/master/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/benkemad/scriptbagus/master/issue.net"
 sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # download script
 cd /usr/bin
-wget -O perpanjang "https://raw.githubusercontent.com/benkemad/benninstall/master/perpanjang.sh"
-wget -O menu "https://raw.githubusercontent.com/benkemad/benninstall/master/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/benkemad/benninstall/master/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/benkemad/benninstall/master/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/benkemad/benninstall/master/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/benkemad/benninstall/master/member.sh"
-wget -O delete "https://raw.githubusercontent.com/benkemad/benninstall/master/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/benkemad/benninstall/master/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/benkemad/benninstall/master/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/benkemad/benninstall/master/speedtest_cli.py"
-wget -O limit "https://raw.githubusercontent.com/benkemad/benninstall/master/limit.sh"
-wget -O userlimit "https://raw.githubusercontent.com/benkemad/benninstall/master/userlimit.sh"
-wget -O portstat "https://raw.githubusercontent.com/benkemad/benninstall/master/portstat.sh"
-wget -O info "https://raw.githubusercontent.com/benkemad/benninstall/master/info.sh"
-wget -O contact "https://raw.githubusercontent.com/benkemad/benninstall/master/contact.sh"
-wget -O about "https://raw.githubusercontent.com/benkemad/benninstall/master/about.sh"
+wget -O perpanjang "https://raw.githubusercontent.com/benkemad/scriptbagus/master/perpanjang.sh"
+wget -O menu "https://raw.githubusercontent.com/benkemad/scriptbagus/master/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/benkemad/scriptbagus/master/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/benkemad/scriptbagus/master/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/benkemad/scriptbagus/master/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/benkemad/scriptbagus/master/member.sh"
+wget -O delete "https://raw.githubusercontent.com/benkemad/scriptbagus/master/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/benkemad/scriptbagus/master/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/benkemad/scriptbagus/master/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/benkemad/scriptbagus/master/speedtest_cli.py"
+wget -O limit "https://raw.githubusercontent.com/benkemad/scriptbagus/master/limit.sh"
+wget -O userlimit "https://raw.githubusercontent.com/benkemad/scriptbagus/master/userlimit.sh"
+wget -O portstat "https://raw.githubusercontent.com/benkemad/scriptbagus/master/portstat.sh"
+wget -O info "https://raw.githubusercontent.com/benkemad/scriptbagus/master/info.sh"
+wget -O contact "https://raw.githubusercontent.com/benkemad/scriptbagus/master/contact.sh"
+wget -O about "https://raw.githubusercontent.com/benkemad/scriptbagus/master/about.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
