@@ -2,4 +2,4 @@
 
 clear
 neofetch
-echo -e "by Kemaddd"
+echo -e "by AdminPandassh"
