@@ -103,7 +103,7 @@ apt-get -y install neofetch
 cd
 echo "clear" >> .profile
 echo "neofetch" >> .profile
-echo "echo by Kemaddd" >> .profile
+echo "echo by AdminPandassh" >> .profile
 
 # instal php5.6 ubuntu 16.04 64bit
 apt-get -y update
